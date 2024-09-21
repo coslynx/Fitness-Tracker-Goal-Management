@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #f4f6f8;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 600;
+}
+
+a {
+  color: #556cd6;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s ease-in-out;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.card {
+  @apply rounded-lg shadow-md bg-white p-6;
+}
+
+.btn {
+  @apply rounded-md px-4 py-2 font-medium text-center focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50;
+}
+
+.btn-primary {
+  @apply bg-blue-500 text-white hover:bg-blue-700;
+}
+
+.btn-secondary {
+  @apply bg-gray-200 text-gray-700 hover:bg-gray-300;
+}
+
+.btn-outline {
+  @apply bg-transparent text-blue-500 border border-blue-500 hover:bg-blue-100;
+}
+
+.input {
+  @apply border border-gray-300 rounded px-3 py-2 text-gray-900 focus:outline-none focus:ring-1 focus:ring-blue-500;
+}
+
+.input-disabled {
+  @apply cursor-not-allowed opacity-50;
+}
+
+.form-group {
+  @apply flex flex-col space-y-2;
+}
+
+.form-label {
+  @apply text-sm font-medium text-gray-900;
+}
+
+.list-group {
+  @apply divide-y divide-gray-700;
+}
+
+.list-item {
+  @apply flex items-center px-4 py-3 text-gray-200 hover:bg-gray-700 rounded-md;
+}
+
+.icon {
+  @apply w-5 h-5 text-gray-500;
+}
