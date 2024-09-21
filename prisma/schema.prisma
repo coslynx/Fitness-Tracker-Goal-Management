@@ -1,0 +1,35 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int      @id @default(auto()) @map("user_id")
+  email     String   @unique
+  password  String
+  name      String
+  goals     Goal[]
+  progress  Progress[]
+}
+
+model Goal {
+  id        Int      @id @default(auto())
+  userId    Int
+  type      String
+  target     Float
+  deadline   DateTime
+  user      User     @relation(fields: [userId], references: [id])
+  progress  Progress[]
+}
+
+model Progress {
+  id        Int      @id @default(auto())
+  goalId   Int
+  date     DateTime
+  value     Float
+  goal     Goal     @relation(fields: [goalId], references: [id])
+}
