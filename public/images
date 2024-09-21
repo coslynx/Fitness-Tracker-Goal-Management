@@ -1,0 +1,17 @@
+// public/images/index.js
+import Image from 'next/image';
+import { useSession } from 'next-auth/react';
+
+export default function ImageComponent() {
+  const { data: session } = useSession();
+
+  return (
+    <Image
+      src={session?.user?.image || '/profile-placeholder.png'}
+      alt={session?.user?.name || 'User Profile Image'}
+      width={50}
+      height={50}
+      className="rounded-full"
+    />
+  );
+}
